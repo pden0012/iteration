@@ -4,8 +4,12 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const apiTarget = env.VITE_API_TARGET || 'http://13.236.162.216:8080'
+  
+  // Set base path based on environment
+  const base = process.env.NODE_ENV === 'production' ? '/' : '/main_tp40/'
+  
   return {
-    base: '/main_tp40/',
+    base: base,
     plugins: [vue()],
     server: {
       port: 3000,
