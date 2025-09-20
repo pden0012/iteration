@@ -3,7 +3,8 @@ services:
     name: hay-fever-management
     env: node
     plan: free
-    buildCommand: npm ci && npm run build
+    rootDir: .
+    buildCommand: npm ci && npm run build:render
     staticPublishPath: ./dist
     envVars:
       - key: NODE_ENV
